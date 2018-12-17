@@ -1,0 +1,26 @@
+<div class="container">
+    <nav class="navbar" style="text-align: center;">
+      <div class="container-fluid">
+        <div class="navbar">
+          <a class="navbar-brand" [routerLink]="['/']">List</a>
+          <a class="navbar-brand" [routerLink]="['/addplayer']">Add Player</a>
+        </div>
+      </div>
+    </nav>
+    <form (submit)="create()">
+        <div class ="form-group">
+          <label for="player.name">Player Name: </label>
+          <div>
+            <input type="text" name="player.name" [(ngModel)]="player.name" placeholder="Name">
+            <p *ngIf="errors.name"> {{errors.name.message}}</p>
+          </div>
+        </div>
+        <div class ="form-group">
+          <label for="player.position">Preferred Position: </label>
+          <div>
+            <input type="text" name="player.position" [(ngModel)]="player.position" placeholder="Position">
+          </div>
+        </div>
+        <input type="submit" value="Create a Player" class='btn btn-success'/>
+    </form>  
+</div>

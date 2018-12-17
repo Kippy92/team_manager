@@ -1,0 +1,14 @@
+<nav class="navbar" style="text-align: center;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <h1>
+            {{ title }}
+          </h1>
+    </div>
+    <div class="navbar">
+      <a class="navbar-brand" [routerLink]="['/']">Manage Players</a>
+      <a class="navbar-brand" [routerLink]="['/game1']">Manage Player Statuses</a>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

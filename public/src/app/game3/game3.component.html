@@ -1,0 +1,57 @@
+<div class="container">
+    <nav class="navbar" style="text-align: center;">
+        <div class="container-fluid">
+          <div class="navbar">
+            <a class="navbar-brand" [routerLink]="['/game1']">Game 1</a>
+            <a class="navbar-brand" [routerLink]="['/game2']">Game 2</a>
+            <a class="navbar-brand" [routerLink]="['/game3']"><strong>Game 3</strong></a>
+          </div>
+        </div>
+      </nav>                 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.name }} </td>
+        <td *ngIf="player.games.game3=='Undecided'">
+          <form (submit)="play(player._id)" style='display: inline-block'>
+            <input type="submit" value="Playing" class='btn btn-default'>
+          </form>
+          <form (submit)="noplay(player._id)" style='display: inline-block'>
+            <input type="submit" value="Not Playing" class='btn btn-default'>
+          </form>
+          <form (submit)="undecide(player._id)" style='display: inline-block'>
+            <input type="submit" value="Undecided" class='btn btn-warning'>
+          </form>
+        </td>
+        <td *ngIf="player.games.game3=='Playing'">
+          <form (submit)="play(player._id)" style='display: inline-block'>
+            <input type="submit" value="Playing" class='btn btn-success'>
+          </form>
+          <form (submit)="noplay(player._id)" style='display: inline-block'>
+            <input type="submit" value="Not Playing" class='btn btn-default'>
+          </form>
+          <form (submit)="undecide(player._id)" style='display: inline-block'>
+            <input type="submit" value="Undecided" class='btn btn-default'>
+          </form>
+        </td>
+        <td *ngIf="player.games.game3=='Not Playing'">
+          <form (submit)="play(player._id)" style='display: inline-block'>
+            <input type="submit" value="Playing" class='btn btn-default'>
+          </form>
+          <form (submit)="noplay(player._id)" style='display: inline-block'>
+            <input type="submit" value="Not Playing" class='btn btn-danger'>
+          </form>
+          <form (submit)="undecide(player._id)" style='display: inline-block'>
+            <input type="submit" value="Undecided" class='btn btn-default'>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+  <nav class="navbar" style="text-align: center;">
+    <div class="container-fluid">
+      <div class="navbar">
+        <a class="navbar-brand" [routerLink]="['/']">List</a>
+        <a class="navbar-brand" [routerLink]="['/addplayer']">Add Player</a>
+      </div>
+    </div>
+  </nav>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Position</th>
+        <th>Delete?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{ player.name }} </td>
+        <td>{{ player.position }}</td>
+        <td><button class='btn btn-danger' (click) = "delete(player._id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
